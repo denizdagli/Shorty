@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shorty</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>SHORTY</h1>
+    <form id="shorten-form" method="POST" action="/" onsubmit="handleSubmit(event)">
+      <label for="url">Original URL:</label>
+      <input type="text" id="url" name="url" required />
+      <button type="submit">Shorten</button>
+    </form>
+
+    <% if (shortUrl) { %>
+      <div id="short-url">
+        <p>Short URL: <a href="<%= shortUrl %>"><%= shortUrl %></a></p>
+        <p>Original URL: <a href="<%= url %>"><%= url %></a></p>
+      </div>
+    <% } %>
+
+    <script src="app.js"></script>
+  </body>
+</html>
