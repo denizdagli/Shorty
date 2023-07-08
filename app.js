@@ -4,11 +4,7 @@ require('dotenv').config();
 require('./src/config/dbConnect');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const Link = require('./src/models/Link');
-const controller = require('./src/controllers/linkController');
-
-
-
+const linkRoute = require('./src/routes/linkRoute');
 const app = express();
 const port = process.env.PORT || 6000;
 
@@ -20,11 +16,9 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', controller.getPage);
+//routes
+app.use('/', linkRoute);
 
-app.post('/', controller.createLink);
-
-app.get('/:code', controller.redirect);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
