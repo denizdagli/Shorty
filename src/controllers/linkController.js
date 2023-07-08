@@ -1,6 +1,6 @@
 const Link = require('../models/Link');
 const { generateCode } = require('../utils/code');
-const { port } = require('../app');
+const { port } = require('../../app');
 
 exports.getPage = (req, res) => {
   const shortUrl = null;

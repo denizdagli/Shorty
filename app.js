@@ -1,33 +1,22 @@
 // app.js
 const express = require('express');
-const mongoose = require('mongoose');
+require('dotenv').config();
+require('./src/config/dbConnect');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const Link = require('./models/Link');
-const controller = require('./controllers/linkController');
-require('dotenv').config();
+const Link = require('./src/models/Link');
+const controller = require('./src/controllers/linkController');
+
+
 
 const app = express();
 const port = process.env.PORT || 6000;
 
 // Export port
 module.exports = { port };
-
-const dbUri = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
-mongoose
-  .connect(dbUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log('Connected to the database');
-  })
-  .catch((error) => {
-    console.error('Error connecting to the database:', error);
-  });
-
+// Set view engine
 app.set('view engine', 'ejs');
-
+//middlewares
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
