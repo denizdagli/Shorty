@@ -21,5 +21,6 @@ app.use('/', linkRoute);
 
 
 app.listen(port, () => {
+  console.log("test message");
   console.log(`Server is listening on port ${port}`);
 });
