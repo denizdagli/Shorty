@@ -18,9 +18,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //routes
 app.use('/', linkRoute);
+app.get("/test", (req, res) => {
+  res.send("login page");
+});
 
 
 app.listen(port, () => {
-  console.log("test message");
+
   console.log(`Server is listening on port ${port}`);
 });
