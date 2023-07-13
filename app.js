@@ -17,8 +17,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //routes
-app.use('/', linkRoute);
-app.get("/test", (req, res) => {
+//app.use('/', linkRoute);
+app.get("/", (req, res) => {
   res.send("login page");
 });
 
