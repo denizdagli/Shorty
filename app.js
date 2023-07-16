@@ -5,6 +5,7 @@ require('./src/config/dbConnect');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const linkRoute = require('./src/routes/linkRoute');
+const pageRoute = require('./src/routes/pageRoute');
 const app = express();
 const port = process.env.PORT || 6000;
 
@@ -17,11 +18,12 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //routes
-//app.use('/', linkRoute);
-app.get("/", (req, res) => {
+app.use('/', linkRoute);
+/* app.get("/", (req, res) => {
   res.send("login page");
 });
-
+ */
+app.use('/api',pageRoute);
 
 app.listen(port, () => {
 
