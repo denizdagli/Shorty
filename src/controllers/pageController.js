@@ -21,3 +21,9 @@ exports.homePage = (req, res) => {
         message: 'Welcome to the home page!',
     });
 }
+
+exports.contactUsPage = (req, res) => {
+    res.status(200).json({
+        message: 'Welcome to the contact us page!',
+    });
+}
